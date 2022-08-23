@@ -1,0 +1,3 @@
+/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build/CMakeFiles/MYGAME.dir
