@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong
+CMAKE_SOURCE_DIR = /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build
+CMAKE_BINARY_DIR = /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/MYGAME.dir/depend.make
@@ -59,43 +59,58 @@ include CMakeFiles/MYGAME.dir/flags.make
 
 CMakeFiles/MYGAME.dir/src/main.cpp.o: CMakeFiles/MYGAME.dir/flags.make
 CMakeFiles/MYGAME.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MYGAME.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MYGAME.dir/src/main.cpp.o -c /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MYGAME.dir/src/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MYGAME.dir/src/main.cpp.o -c /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/main.cpp
 
 CMakeFiles/MYGAME.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MYGAME.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/src/main.cpp > CMakeFiles/MYGAME.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/main.cpp > CMakeFiles/MYGAME.dir/src/main.cpp.i
 
 CMakeFiles/MYGAME.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MYGAME.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/src/main.cpp -o CMakeFiles/MYGAME.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/main.cpp -o CMakeFiles/MYGAME.dir/src/main.cpp.s
 
 CMakeFiles/MYGAME.dir/src/Game/game.cpp.o: CMakeFiles/MYGAME.dir/flags.make
 CMakeFiles/MYGAME.dir/src/Game/game.cpp.o: ../src/Game/game.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MYGAME.dir/src/Game/game.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MYGAME.dir/src/Game/game.cpp.o -c /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/src/Game/game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MYGAME.dir/src/Game/game.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MYGAME.dir/src/Game/game.cpp.o -c /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Game/game.cpp
 
 CMakeFiles/MYGAME.dir/src/Game/game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MYGAME.dir/src/Game/game.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/src/Game/game.cpp > CMakeFiles/MYGAME.dir/src/Game/game.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Game/game.cpp > CMakeFiles/MYGAME.dir/src/Game/game.cpp.i
 
 CMakeFiles/MYGAME.dir/src/Game/game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MYGAME.dir/src/Game/game.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/src/Game/game.cpp -o CMakeFiles/MYGAME.dir/src/Game/game.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Game/game.cpp -o CMakeFiles/MYGAME.dir/src/Game/game.cpp.s
+
+CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.o: CMakeFiles/MYGAME.dir/flags.make
+CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.o: ../src/Scene/Scene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.o -c /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Scene.cpp
+
+CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Scene.cpp > CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.i
+
+CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Scene.cpp -o CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.s
 
 # Object files for target MYGAME
 MYGAME_OBJECTS = \
 "CMakeFiles/MYGAME.dir/src/main.cpp.o" \
-"CMakeFiles/MYGAME.dir/src/Game/game.cpp.o"
+"CMakeFiles/MYGAME.dir/src/Game/game.cpp.o" \
+"CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.o"
 
 # External object files for target MYGAME
 MYGAME_EXTERNAL_OBJECTS =
 
 MYGAME: CMakeFiles/MYGAME.dir/src/main.cpp.o
 MYGAME: CMakeFiles/MYGAME.dir/src/Game/game.cpp.o
+MYGAME: CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.o
 MYGAME: CMakeFiles/MYGAME.dir/build.make
 MYGAME: CMakeFiles/MYGAME.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable MYGAME"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable MYGAME"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MYGAME.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +123,6 @@ CMakeFiles/MYGAME.dir/clean:
 .PHONY : CMakeFiles/MYGAME.dir/clean
 
 CMakeFiles/MYGAME.dir/depend:
-	cd /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build/CMakeFiles/MYGAME.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build/CMakeFiles/MYGAME.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/MYGAME.dir/depend
 

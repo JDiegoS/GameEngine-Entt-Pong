@@ -1,6 +1,13 @@
 #include <iostream>
 #include "game.h"
 
+#include "./entt/entt.hpp"
+#include "../Scene/Scene.h"
+
+#include "../Scene/Entities.hpp"
+#include "../Scene/Components.hpp"
+#include "../Scene/Systems.hpp"
+
 SDL_Rect ball;
 SDL_Rect paddle1;
 SDL_Rect paddle2;

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong
+CMAKE_SOURCE_DIR = /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build
+CMAKE_BINARY_DIR = /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build/CMakeFiles /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build/CMakeFiles /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Pong/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,6 +150,33 @@ src/Game/game.cpp.s:
 	$(MAKE) -f CMakeFiles/MYGAME.dir/build.make CMakeFiles/MYGAME.dir/src/Game/game.cpp.s
 .PHONY : src/Game/game.cpp.s
 
+src/Scene/Scene.o: src/Scene/Scene.cpp.o
+
+.PHONY : src/Scene/Scene.o
+
+# target to build an object file
+src/Scene/Scene.cpp.o:
+	$(MAKE) -f CMakeFiles/MYGAME.dir/build.make CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.o
+.PHONY : src/Scene/Scene.cpp.o
+
+src/Scene/Scene.i: src/Scene/Scene.cpp.i
+
+.PHONY : src/Scene/Scene.i
+
+# target to preprocess a source file
+src/Scene/Scene.cpp.i:
+	$(MAKE) -f CMakeFiles/MYGAME.dir/build.make CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.i
+.PHONY : src/Scene/Scene.cpp.i
+
+src/Scene/Scene.s: src/Scene/Scene.cpp.s
+
+.PHONY : src/Scene/Scene.s
+
+# target to generate assembly for a file
+src/Scene/Scene.cpp.s:
+	$(MAKE) -f CMakeFiles/MYGAME.dir/build.make CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.s
+.PHONY : src/Scene/Scene.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... src/Game/game.o"
 	@echo "... src/Game/game.i"
 	@echo "... src/Game/game.s"
+	@echo "... src/Scene/Scene.o"
+	@echo "... src/Scene/Scene.i"
+	@echo "... src/Scene/Scene.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
