@@ -12,7 +12,7 @@ class Game {
         Game();
         ~Game();
 
-        void init(const char* title, int width, int height);
+        void init(const char* title);
         void setup();
         void handleEvents();
         void update();

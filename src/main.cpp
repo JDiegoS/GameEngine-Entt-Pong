@@ -6,7 +6,7 @@ Game *game = nullptr;
 int main(int argc, const char * argv[]){
     game = new Game();
 
-    game->init("MY GAME", 1000, 800);
+    game->init("MY GAME");
     game->setup();
 
     while(game->running()){

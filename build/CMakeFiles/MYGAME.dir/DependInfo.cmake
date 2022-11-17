@@ -5,7 +5,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Game/game.cpp" "/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build/CMakeFiles/MYGAME.dir/src/Game/game.cpp.o"
-  "/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Scene.cpp" "/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build/CMakeFiles/MYGAME.dir/src/Scene/Scene.cpp.o"
   "/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/main.cpp" "/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/build/CMakeFiles/MYGAME.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

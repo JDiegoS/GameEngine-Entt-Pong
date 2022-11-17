@@ -1,18 +1,159 @@
 #include <iostream>
 #include "game.h"
 
-#include <entt/entt.hpp>
-#include "../Scene/Scene.h"
+#include "../entt/entt.hpp"
 
-#include "../Scene/Entities.hpp"
-#include "../Scene/Components.hpp"
-#include "../Scene/Systems.hpp"
-
-SDL_Rect ball;
-SDL_Rect paddle1;
-SDL_Rect paddle2;
+const int SCREEN_WIDTH = 1000;
+const int SCREEN_HEIGHT = 800;
 int speed = 2;
 int player_speed = 50;
+
+entt::registry mRegistry;
+
+entt::entity paddle1, paddle2;
+
+struct PositionComponent {
+    int x, y;
+};
+
+struct VelocityComponent {
+    int x, y;
+};
+
+struct CubeComponent {
+    int w, h;
+};
+
+struct PlayerComponent{
+    int playerID;
+};
+
+struct BallComponent{
+};
+
+PositionComponent playerSpawnPosition = {20, 20};
+VelocityComponent playerSpawnVelocity = {200, 200};
+CubeComponent playerRect = {200, 20};
+
+void createPlayerEntity(PositionComponent pos, VelocityComponent vel, CubeComponent rect, PlayerComponent player)
+{
+    const entt::entity e = mRegistry.create();
+    mRegistry.emplace<PositionComponent>(e, pos);
+    mRegistry.emplace<VelocityComponent>(e, vel);
+    mRegistry.emplace<CubeComponent>(e, rect);  
+
+    mRegistry.emplace<PlayerComponent>(e, player);  
+
+    if (player.playerID == 1){
+        paddle1 = e;
+    }
+    else{
+        paddle2 = e;
+    }
+
+
+
+}
+void createBallEntity(PositionComponent pos, VelocityComponent vel, CubeComponent rect)
+{
+    const entt::entity e = mRegistry.create();
+    mRegistry.emplace<PositionComponent>(e, pos);
+    mRegistry.emplace<VelocityComponent>(e, vel);
+    mRegistry.emplace<CubeComponent>(e, rect);  
+
+    mRegistry.emplace<BallComponent>(e); 
+
+}
+
+
+float dx = 1.0f;
+float dy = 1.0f;
+bool playing = true;
+bool player1Won = false;
+
+void ballMovementSystem() {
+    /*
+    int pad1x, pad1y, pad1w, pad2x, pad2h, pad2w;
+
+    
+    auto view = mRegistry.view<PlayerComponent, PositionComponent, CubeComponent>();
+    for (const entt::entity e : view) {
+        PositionComponent& pos = view.get<PositionComponent>(e);
+        const CubeComponent& rect = view.get<CubeComponent>(e);
+        const PlayerComponent& player = view.get<PlayerComponent>(e);
+
+        if (player.playerID == 1){
+            pad1x = pos.x;
+            pad1y = pos.y;
+            pad1w = rect.w;
+        }
+        else{
+            pad2x = pos.x;
+            pad2h = rect.h;
+            pad2w = rect.w;
+        }
+    }
+    */
+
+    PositionComponent& pad1Position = mRegistry.get<PositionComponent>(paddle1);
+    CubeComponent& pad1Rect = mRegistry.get<CubeComponent>(paddle1);
+    PositionComponent& pad2Position = mRegistry.get<PositionComponent>(paddle2);
+    CubeComponent& pad2Rect = mRegistry.get<CubeComponent>(paddle2);
+    
+    auto view2 = mRegistry.view<BallComponent, PositionComponent, CubeComponent>();
+    for (const entt::entity e : view2) {
+        PositionComponent& pos = view2.get<PositionComponent>(e);
+        CubeComponent& rect = view2.get<CubeComponent>(e);
+
+        pos.x += speed * dx;
+        pos.y += speed * dy;
+
+        if (pos.y + rect.h >= SCREEN_HEIGHT){
+            playing = false;
+            player1Won = true;
+        }
+
+        if (pos.y <= 0){
+            playing = false;
+            player1Won = false;
+            
+        }
+
+        if (pos.x + rect.w >= SCREEN_WIDTH){
+            dx *= -1.05f;
+        }
+
+        if (pos.x <= 0){
+            dx *= -1.05f;
+        }
+
+        if (pos.y + rect.h >= pad1Position.y && pos.x + rect.w >= pad1Position.x && pos.x <= pad1Position.x + pad1Rect.w){
+            dy *= -1.05f;
+            dy *= 1.05f;
+        }
+
+        if (pos.y <= pad2Rect.h && pos.x + rect.w >= pad2Position.x && pos.x <= pad2Position.x + pad2Rect.w){
+            dy *= -1.05f;
+            dy *= 1.05f;
+        }
+
+        pos.x += speed * dx;
+        pos.y += speed * dy;
+    }
+}
+
+void cubeRenderSystem(SDL_Renderer* renderer) {
+  SDL_SetRenderDrawColor(renderer, 255, 255 ,255, 1);
+
+  const auto view = mRegistry.view<PositionComponent, CubeComponent>();
+  for (const entt::entity e : view) {
+    const PositionComponent position = view.get<PositionComponent>(e);
+    const CubeComponent cube = view.get<CubeComponent>(e);
+
+    SDL_Rect rect = { position.x, position.y, cube.w, cube.h };    
+    SDL_RenderFillRect(renderer, &rect);
+  }
+}
 
 Game::Game ()
 {
@@ -30,35 +171,27 @@ Game::~Game ()
 {
     std::cout << "~Game" << std::endl;
 }
-Scene* scene;
 void Game::setup(){
 
-    scene = new Scene("Level1");
+    PositionComponent paddle1Position = {SCREEN_WIDTH/2, SCREEN_HEIGHT - 20};
+    VelocityComponent paddle1Velocity = {0, 0};
+    CubeComponent paddle1Rect = {200, 20};
+    PlayerComponent paddle1Player = {1};
 
-    Entity player = scene->createEntity();
-    player.addComponent<MovementComponent>(MovementComponent{glm::vec2(50, 50)});
-    player.addComponent<ColliderComponent>(ColliderComponent{glm::vec2(50, 50)});
+    createPlayerEntity(paddle1Position, paddle1Velocity, paddle1Rect, paddle1Player);
 
-    scene->addSetupSystem(new HelloSystem());
-    scene->addUpdateSystem(new MovementSystem(3000));
-    scene->addRenderSystem(new CubeSystem());
+    PositionComponent paddle2Position = {SCREEN_WIDTH/2, 0};
+    VelocityComponent paddle2Velocity = {0, 0};
+    CubeComponent paddle2Rect = {200, 20};
+    PlayerComponent paddle2Player = {2};
 
-    scene->setup();
+    createPlayerEntity(paddle2Position, paddle2Velocity, paddle2Rect, paddle2Player);
 
-    ball.x = 20;
-    ball.y = 20;
-    ball.h = 20;
-    ball.w = 20;
+    PositionComponent ballPosition = {20, 20};
+    VelocityComponent ballVelocity = {0, 0};
+    CubeComponent ballRect = {20, 20};
 
-    paddle1.x = window_width/2;
-    paddle1.y = window_height - 20;
-    paddle1.h = 20;
-    paddle1.w = 200;
-
-    paddle2.x = window_width/2;
-    paddle2.y = 0;
-    paddle2.h = 20;
-    paddle2.w = 200;
+    createBallEntity(ballPosition, ballVelocity, ballRect);
 }
 
 void Game::frameStart(){
@@ -83,13 +216,11 @@ void Game::frameEnd(){
 
 }
 
-void Game::init(const char* title, int widthi, int heighti){
+void Game::init(const char* title){
     SDL_Init(SDL_INIT_EVERYTHING);
-    window = SDL_CreateWindow(title, 0, 0, widthi, heighti, 0);
+    window = SDL_CreateWindow(title, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
     
     renderer = SDL_CreateRenderer(window, -1, 0);
-    window_height = heighti;
-    window_width = widthi;
     isRunning = true;
 
 }
@@ -97,30 +228,37 @@ void Game::handleEvents(){
 
     SDL_Event event;
 
+
+
     while(SDL_PollEvent(&event)){
         if(event.type == SDL_QUIT){
             isRunning = false;
         }
         if(event.type == SDL_KEYDOWN){
+            PositionComponent& pad1Position = mRegistry.get<PositionComponent>(paddle1);
+            CubeComponent& pad1Rect = mRegistry.get<CubeComponent>(paddle1);
+            PositionComponent& pad2Position = mRegistry.get<PositionComponent>(paddle2);
+            CubeComponent& pad2Rect = mRegistry.get<CubeComponent>(paddle2);
+
             switch(event.key.keysym.sym){
                 case SDLK_LEFT:
-                    if (paddle1.x - player_speed >= 0){
-                        paddle1.x -= player_speed;
+                    if (pad1Position.x - player_speed >= 0){
+                        pad1Position.x -= player_speed;
                     }
                     break;
                 case SDLK_RIGHT:
-                    if (paddle1.x + paddle1.w + player_speed <= window_width){
-                        paddle1.x += player_speed;
+                    if (pad1Position.x + pad1Rect.w + player_speed <= SCREEN_WIDTH){
+                        pad1Position.x += player_speed;
                     }
                     break;
                 case SDLK_a:
-                    if (paddle2.x - player_speed >= 0){
-                        paddle2.x -= player_speed;
+                    if (pad2Position.x - player_speed >= 0){
+                        pad2Position.x -= player_speed;
                     }
                     break;
                 case SDLK_d:
-                    if (paddle2.x + paddle2.w + player_speed <= window_width){
-                        paddle2.x += player_speed;
+                    if (pad2Position.x + pad2Rect.w + player_speed <= SCREEN_WIDTH){
+                        pad2Position.x += player_speed;
                     }
                     break;
                 
@@ -130,47 +268,14 @@ void Game::handleEvents(){
     }
 
 }
-float dx = 1.0f;
-float dy = 1.0f;
+
 
 void Game::update(){
 
-    scene->update(dT);
 
-    ball.x += speed * dx;
-    ball.y += speed * dy;
-
-    if (ball.y + ball.h >= window_height){
-        isRunning = false;
-        winnerTop = true;
-    }
-
-    if (ball.y <= 0){
-        isRunning = false;
-        winnerTop = false;
-        
-    }
-
-    if (ball.x + ball.w >= window_width){
-        dx *= -1.05f;
-    }
-
-    if (ball.x <= 0){
-        dx *= -1.05f;
-    }
-
-    if (ball.y + ball.h >= paddle1.y && ball.x + ball.w >= paddle1.x && ball.x <= paddle1.x + paddle1.w){
-        dy *= -1.05f;
-        dy *= 1.05f;
-    }
-
-    if (ball.y <= paddle2.h && ball.x + ball.w >= paddle2.x && ball.x <= paddle2.x + paddle2.w){
-        dy *= -1.05f;
-        dy *= 1.05f;
-    }
-
-    ball.x += speed * dx;
-    ball.y += speed * dy;
+    ballMovementSystem();
+    isRunning = playing;
+    winnerTop = player1Won;
 
 }
 void Game::render(){
@@ -179,11 +284,8 @@ void Game::render(){
     SDL_RenderClear(renderer);
 
     SDL_SetRenderDrawColor(renderer, 200, 200, 255, 1);
-    SDL_RenderFillRect(renderer, &ball);
-    SDL_RenderFillRect(renderer, &paddle1);
-    SDL_RenderFillRect(renderer, &paddle2);
 
-    scene->render(renderer);
+    cubeRenderSystem(renderer); 
 
     /*
     SDL_Surface* surface = IMG_Load("./assets/1.png");
