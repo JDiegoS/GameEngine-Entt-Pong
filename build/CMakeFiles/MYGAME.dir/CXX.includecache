@@ -11,8 +11,8 @@ iostream
 -
 game.h
 /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Game/game.h
-./entt/entt.hpp
-/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Game/entt/entt.hpp
+entt/entt.hpp
+-
 ../Scene/Scene.h
 /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Scene.h
 ../Scene/Entities.hpp
@@ -37,28 +37,10 @@ string
 /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Entities.hpp
 iostream
 -
-./entt/entt.hpp
-/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/entt/entt.hpp
-Scene.h
-/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Scene.h
-
-/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Scene.cpp
-iostream
--
-string
--
-glm/glm.hpp
--
-SDL2/SDL.h
+entt/entt.hpp
 -
 Scene.h
 /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Scene.h
-Entities.hpp
-/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Entities.hpp
-Components.hpp
-/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Components.hpp
-System.h
-/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/System.h
 
 /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Scene.h
 SDL2/SDL.h
@@ -67,8 +49,8 @@ iostream
 -
 string
 -
-./entt/entt.hpp
-/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/entt/entt.hpp
+entt/entt.hpp
+-
 
 /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/System.h
 Scene.h
@@ -85,10 +67,4 @@ SDL2/SDL.h
 /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/System.h
 ./Components.hpp
 /mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Scene/Components.hpp
-
-/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/main.cpp
-iostream
--
-Game/game.h
-/mnt/c/Users/jdieg/Documents/UVG/A5S2/GameEngine/GameEngine-Entt-Pong/src/Game/game.h
 

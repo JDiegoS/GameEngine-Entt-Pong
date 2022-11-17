@@ -4,7 +4,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <string>
-#include "./entt/entt.hpp"
+#include <entt/entt.hpp>
 
 class Entity;
 class SetupSystem;
@@ -23,7 +23,7 @@ class Scene {
     Scene(const std::string&);
     ~Scene();
 
-    entt::registry r;
+    entt::registry mRegistry;
 
     Entity createEntity(
       const std::string& name = "NO NAME",

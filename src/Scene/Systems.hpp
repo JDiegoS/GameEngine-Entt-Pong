@@ -12,7 +12,7 @@ class MovementSystem : public UpdateSystem {
     MovementSystem(int c) : counter(c) {}
 
     void run(double dT) override {
-      const auto view = scene->r.view<TransformComponent, MovementComponent>();
+      const auto view = scene->mRegistry.view<TransformComponent, MovementComponent>();
       for (const entt::entity e : view) {
         TransformComponent& t = view.get<TransformComponent>(e);
         MovementComponent& m = view.get<MovementComponent>(e);
@@ -52,7 +52,7 @@ class CubeSystem : public RenderSystem {
     void run(SDL_Renderer* renderer) override {
       SDL_SetRenderDrawColor(renderer, 255, 100, 100, 1);
 
-      const auto view = scene->r.view<TransformComponent, ColliderComponent>();
+      const auto view = scene->mRegistry.view<TransformComponent, ColliderComponent>();
       for (const entt::entity e : view) {
         const TransformComponent& t = view.get<TransformComponent>(e);
         const ColliderComponent& c = view.get<ColliderComponent>(e);

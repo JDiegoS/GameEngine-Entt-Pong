@@ -1,7 +1,7 @@
 #include <iostream>
 #include "game.h"
 
-#include "./entt/entt.hpp"
+#include <entt/entt.hpp>
 #include "../Scene/Scene.h"
 
 #include "../Scene/Entities.hpp"
@@ -30,7 +30,20 @@ Game::~Game ()
 {
     std::cout << "~Game" << std::endl;
 }
+Scene* scene;
 void Game::setup(){
+
+    scene = new Scene("Level1");
+
+    Entity player = scene->createEntity();
+    player.addComponent<MovementComponent>(MovementComponent{glm::vec2(50, 50)});
+    player.addComponent<ColliderComponent>(ColliderComponent{glm::vec2(50, 50)});
+
+    scene->addSetupSystem(new HelloSystem());
+    scene->addUpdateSystem(new MovementSystem(3000));
+    scene->addRenderSystem(new CubeSystem());
+
+    scene->setup();
 
     ball.x = 20;
     ball.y = 20;
@@ -122,6 +135,8 @@ float dy = 1.0f;
 
 void Game::update(){
 
+    scene->update(dT);
+
     ball.x += speed * dx;
     ball.y += speed * dy;
 
@@ -167,6 +182,8 @@ void Game::render(){
     SDL_RenderFillRect(renderer, &ball);
     SDL_RenderFillRect(renderer, &paddle1);
     SDL_RenderFillRect(renderer, &paddle2);
+
+    scene->render(renderer);
 
     /*
     SDL_Surface* surface = IMG_Load("./assets/1.png");

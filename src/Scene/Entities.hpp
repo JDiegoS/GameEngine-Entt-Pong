@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #include <iostream>
-#include "./entt/entt.hpp"
+#include <entt/entt.hpp>
 #include "Scene.h"
 
 class Entity
@@ -20,12 +20,12 @@ class Entity
 
     template<typename T, typename... Args>
     T& addComponent(Args&&... args) {
-      return scene->r.emplace<T>(handle, std::forward<Args>(args)...);
+      return scene->mRegistry.emplace<T>(handle, std::forward<Args>(args)...);
     }
 
     template<typename T>
     void removeComponent() {
-      scene->r.remove<T>(handle);
+      scene->mRegistry.remove<T>(handle);
     }
 
   private:
